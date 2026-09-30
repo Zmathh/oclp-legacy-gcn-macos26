@@ -1,0 +1,42 @@
+=== lun. 28 sept. 2026 16:09:44 CEST — macOS 26.0 ===
+
+########## FIX_FLAGS=0 FIX_CATT=0
+[both] drapeaux bruts (comme la couche livree) | piece jointe couleur brute (comme la couche livree)
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle entierement dedans              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+ETAPE 2 dessin : R=0 V=0 B=255 A=255  -> ECHEC (reste bleu : rien n'est dessine)
+
+########## FIX_FLAGS=1 FIX_CATT=0
+[both] drapeaux RE-PACKES | piece jointe couleur brute (comme la couche livree)
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=4096   pixel V=0   
+  triangle entierement dedans              sommets=3   fragments=1682   pixel V=0   
+ETAPE 2 dessin : R=0 V=0 B=255 A=255  -> ECHEC (reste bleu : rien n'est dessine)
+
+########## FIX_FLAGS=0 FIX_CATT=1
+[both] drapeaux bruts (comme la couche livree) | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle entierement dedans              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+ETAPE 2 dessin : R=0 V=0 B=255 A=255  -> ECHEC (reste bleu : rien n'est dessine)
+
+########## FIX_FLAGS=1 FIX_CATT=1
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=4096   pixel V=255 
+  triangle entierement dedans              sommets=3   fragments=1682   pixel V=255 
+ETAPE 2 dessin : R=0 V=255 B=0 A=255  -> OK (vert, triangle dessine)
+
+RESULTAT : les deux corrections ensemble DESSINENT -> redemarrage
+Shutdown NOW!
+
+System shutdown time has arrived

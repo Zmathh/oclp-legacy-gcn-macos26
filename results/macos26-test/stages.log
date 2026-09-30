@@ -1,0 +1,10 @@
+=== lun. 28 sept. 2026 10:52:42 CEST — macOS 26.0 (25A354) ===
+peripherique : AMD Radeon R9 M295X
+
+pipeline cree OK
+
+  invocations du shader de sommets   : 3   -> l'etage sommets TOURNE
+  invocations du shader de fragments : 0   -> etage fragments MUET
+  pixel resultant                    : R=0 V=0 B=255
+
+diagnostic : les sommets tournent mais aucun fragment n'est produit (clipping ou assemblage des primitives)

@@ -1,0 +1,20 @@
+# binaires compiles
+*.dylib
+*.o
+*.dSYM/
+metaltest
+gputest
+stages
+clip
+color
+catt
+catt2
+gotscan
+gotscan2
+iosurf
+key
+sym
+missing
+probe
+classes
+.DS_Store

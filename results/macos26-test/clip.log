@@ -1,0 +1,16 @@
+=== lun. 28 sept. 2026 11:14:48 CEST — macOS 26.0 (25A354) ===
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle entierement dedans              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle pile sur les bords              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle enroulement inverse             sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  point central                            sommets=1   fragments=0      pixel V=0   <- rien de rasterise
+
+B. cadrage impose explicitement
+  dedans + viewport                        sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  dedans + scissor                         sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  dedans + viewport + scissor              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  debordant + viewport + scissor           sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  debordant + clipping en clamp            sommets=3   fragments=0      pixel V=0   <- rien de rasterise

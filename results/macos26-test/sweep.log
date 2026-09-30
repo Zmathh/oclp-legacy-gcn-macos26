@@ -1,0 +1,56 @@
+=== lun. 28 sept. 2026 09:49:17 CEST — macOS 26.0 ===
+couche livree (verbatim)     origine       -
+repack (= valeur Sequoia)    7f8004        -
+tout a zero                  0             -
+rasterization seule          4             -
+bit 0 seul                   1             -
+bit 1 seul                   2             -
+bit 2 seul                   4             -
+bit 3 seul                   8             -
+bit 4 seul                   10            -
+bit 5 seul                   20            -
+bit 6 seul                   40            -
+bit 7 seul                   80            -
+bit 8 seul                   100           -
+bit 9 seul                   200           -
+bit 10 seul                  400           -
+bit 11 seul                  800           -
+bit 12 seul                  1000          -
+bit 13 seul                  2000          -
+bit 14 seul                  4000          -
+bit 15 seul                  8000          -
+bit 16 seul                  10000         -
+bit 17 seul                  20000         -
+bit 18 seul                  40000         -
+bit 19 seul                  80000         -
+bit 20 seul                  100000        -
+bit 21 seul                  200000        -
+bit 22 seul                  400000        -
+bit 23 seul                  800000        -
+bit 24 seul                  1000000       -
+bit 25 seul                  2000000       -
+bit 26 seul                  4000000       -
+bit 27 seul                  8000000       -
+bit 28 seul                  10000000      -
+bit 29 seul                  20000000      -
+bit 30 seul                  40000000      -
+bit 31 seul                  80000000      -
+bit 32 seul                  100000000     -
+bit 33 seul                  200000000     -
+bit 34 seul                  400000000     -
+bit 35 seul                  800000000     -
+bit 36 seul                  1000000000    -
+bit 37 seul                  2000000000    -
+bit 38 seul                  4000000000    -
+bit 39 seul                  8000000000    -
+bit 40 seul                  10000000000   -
+repack sans bit 2            7f8000        -
+repack sans bit 15           7f0004        -
+repack sans bit 16           7e8004        -
+repack sans bit 17           7d8004        -
+repack sans bit 18           7b8004        -
+repack sans bit 19           778004        -
+repack sans bit 20           6f8004        -
+repack sans bit 21           5f8004        -
+repack sans bit 22           3f8004        -
+--- resultats complets ---

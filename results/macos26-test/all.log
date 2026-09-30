@@ -1,0 +1,425 @@
+=== mer. 30 sept. 2026 15:21:45 CEST — macOS 26.0 (25A354) ===
+
+################################################## 1. liaisons du pilote
+-- cases non liees, avec le nom du symbole --
+peripherique : AMD Radeon R9 M295X
+pilote : /System/Library/Extensions/AMDMTLBronzeDriver.bundle/Contents/MacOS/AMDMTLBronzeDriver
+
+table de liaison : 58396 octets (paresseuse 0, faible 0)
+
+cases non liees :
+  (aucune)
+
+0 case(s) non liee(s) sur 1473 verifiee(s)
+
+-- comptage des cases empoisonnees par segment --
+peripherique : AMD Radeon R9 M295X
+pilote  : /System/Library/Extensions/AMDMTLBronzeDriver.bundle/Contents/MacOS/AMDMTLBronzeDriver
+en-tete : 0x10fcca000   decalage : 0xffff8006f33ed000
+
+adresse de la variable kIOSurfaceCreationProperties : 0x7ff8460b8a18
+   sa valeur : CreationProperties
+
+__TEXT vmaddr du fichier : 0x7ffa1c8dd000
+  __DATA         vmaddr 0x7ffa1cb39000 taille 0x1000 -> 0 case(s) empoisonnee(s)
+  __DATA_CONST   vmaddr 0x7ffa417e8000 taille 0x22000 -> 0 case(s) empoisonnee(s)
+     contenu de +0xfd8 (la case qui a plante) : 0x00007ff8460b8a18
+  __DATA         vmaddr 0x7ffa43944000 taille 0xd428 -> 0 case(s) empoisonnee(s)
+
+total : 0 case(s) empoisonnee(s)
+
+################################################## 2. piece jointe couleur, 37 configurations
+peripherique : AMD Radeon R9 M295X
+
+########## reference RGBA8Unorm
+  releve 1 :
+    +0x00 00 21 00 00 0f 18 01 00  01 00 00 00 00 00 00 00 
+    +0x10 60 e6 71 48 f8 7f 00 00  d0 41 c8 51 26 dd 00 00 
+    +0x20 25 00 00 00 00 00 00 00  e0 41 c8 51 26 dd 00 00 
+    +0x30 1e 00 00 00 00 00 00 00  f0 41 c8 51 26 dd 00 00 
+
+########## format BGRA8Unorm
+  releve 2 :
+    +0x00 00 21 00 00 0f 40 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 16 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## format RGBA8Unorm_sRGB
+  releve 3 :
+    +0x00 00 21 00 00 0f 1c 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 16 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## format BGRA8Unorm_sRGB
+  releve 4 :
+    +0x00 00 21 00 00 0f 44 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 27 00 00 00 00 00 00 00  40 82 c8 51 26 dd 00 00 
+    +0x30 2a 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## format RGBA16Float
+  releve 5 :
+    +0x00 00 21 00 00 0f cc 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 1b 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## format RGBA32Float
+  releve 6 :
+    +0x00 00 21 00 00 0f f4 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## format R8Unorm
+  releve 7 :
+    +0x00 00 21 00 00 0f 28 00 00  03 00 00 00 00 00 00 00 
+    +0x10 00 00 00 00 00 00 00 00  63 61 63 68 65 5f 66 69 
+    +0x20 6c 65 00 00 00 00 00 00  20 0d cf 03 00 60 00 00 
+    +0x30 30 03 cf 03 00 60 00 00  00 00 00 00 00 00 00 00 
+
+########## format RG8Unorm
+  releve 8 :
+    +0x00 00 21 00 00 0f 78 00 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  40 82 c8 51 26 dd 00 00 
+    +0x30 26 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## format R16Float
+  releve 9 :
+    +0x00 00 21 00 00 0f 64 00 00  03 00 00 00 00 00 00 00 
+    +0x10 00 00 00 00 00 00 00 00  63 61 63 68 65 5f 66 69 
+    +0x20 6c 65 00 00 00 00 00 00  20 0d cf 03 00 60 00 00 
+    +0x30 30 03 cf 03 00 60 00 00  00 00 00 00 00 00 00 00 
+
+########## format RGB10A2Unorm
+  releve 10 :
+    +0x00 00 21 00 00 0f 68 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 16 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## format BGR10A2Unorm
+  releve 11 :
+    +0x00 00 21 00 00 0f 78 01 00  00 00 00 00 00 00 00 00 
+    +0x10 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x20 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  a0 42 c8 51 26 dd 00 00 
+
+########## format RG11B10Float
+  releve 12 :
+    +0x00 00 21 00 00 0f 70 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## format RGBA16Snorm
+  releve 13 :
+    +0x00 00 21 00 00 0f c0 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x0
+  releve 14 :
+    +0x00 00 21 00 00 00 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## masque d'ecriture 0x1
+  releve 15 :
+    +0x00 00 21 00 00 01 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## masque d'ecriture 0x2
+  releve 16 :
+    +0x00 00 21 00 00 02 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## masque d'ecriture 0x3
+  releve 17 :
+    +0x00 00 21 00 00 03 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x4
+  releve 18 :
+    +0x00 00 21 00 00 04 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x5
+  releve 19 :
+    +0x00 00 21 00 00 05 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x6
+  releve 20 :
+    +0x00 00 21 00 00 06 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x7
+  releve 21 :
+    +0x00 00 21 00 00 07 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x8
+  releve 22 :
+    +0x00 00 21 00 00 08 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0x9
+  releve 23 :
+    +0x00 00 21 00 00 09 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0xa
+  releve 24 :
+    +0x00 00 21 00 00 0a 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0xb
+  releve 25 :
+    +0x00 00 21 00 00 0b 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0xc
+  releve 26 :
+    +0x00 00 21 00 00 0c 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0xd
+  releve 27 :
+    +0x00 00 21 00 00 0d 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## masque d'ecriture 0xe
+  releve 28 :
+    +0x00 00 21 00 00 0e 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## masque d'ecriture 0xf
+  releve 29 :
+    +0x00 00 21 00 00 0f 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## melange add, srcAlpha/oneMinusSrcAlpha
+  releve 30 :
+    +0x00 01 24 14 00 0f 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## melange subtract, one/zero
+  releve 31 :
+    +0x00 05 21 00 00 0f 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## melange reverseSubtract, dst/src
+  releve 32 :
+    +0x00 09 26 08 00 0f 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## melange min
+  releve 33 :
+    +0x00 0d 21 00 00 0f 18 01 00  00 80 00 50 ed 7f 00 00 
+    +0x10 00 4e cf 01 00 60 00 00  00 00 00 00 00 00 00 00 
+    +0x20 1d 00 00 00 00 00 00 00  f0 c0 c8 51 26 dd 00 00 
+    +0x30 13 00 00 00 00 00 00 00  00 c1 c8 51 26 dd 00 00 
+
+########## melange max
+  releve 34 :
+    +0x00 11 21 00 00 0f 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## alpha separe : add / srcAlpha,zero
+  releve 35 :
+    +0x00 01 81 00 00 0f 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+########## alpha separe : subtract / one,one
+  releve 36 :
+    +0x00 21 21 80 00 0f 18 01 00  00 00 00 00 00 00 00 00 
+    +0x10 1d 00 00 00 00 00 00 00  10 42 c9 51 26 dd 00 00 
+    +0x20 24 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  30 42 c9 51 26 dd 00 00 
+
+########## melange + masque rouge + BGRA
+  releve 37 :
+    +0x00 01 24 14 00 08 40 01 00  20 82 c8 51 26 dd 00 00 
+    +0x10 26 00 00 00 00 00 00 00  30 82 c8 51 26 dd 00 00 
+    +0x20 fb 07 00 00 00 00 00 00  00 00 00 00 00 00 00 00 
+    +0x30 00 00 00 00 00 00 00 00  50 82 c8 51 26 dd 00 00 
+
+################################################## 3. rendu avec les deux corrections
+
+---------- metaltest
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+device       : AMD Radeon R9 M295X
+low power    : 0 | removable : 0
+ETAPE 1 clear : R=255 V=0 B=0 A=255  -> OK (rouge)
+ETAPE 2 : shaders compiles OK
+ETAPE 2 : pipeline cree OK
+ETAPE 2 dessin : R=0 V=255 B=0 A=255  -> OK (vert, triangle dessine)
+
+---------- clip
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=4096   pixel V=255 
+  triangle entierement dedans              sommets=3   fragments=1682   pixel V=255 
+  triangle pile sur les bords              sommets=3   fragments=2048   pixel V=255 
+  triangle enroulement inverse             sommets=3   fragments=1805   pixel V=255 
+  point central                            sommets=1   fragments=576    pixel V=255 
+
+B. cadrage impose explicitement
+  dedans + viewport                        sommets=3   fragments=1682   pixel V=255 
+  dedans + scissor                         sommets=3   fragments=1682   pixel V=255 
+  dedans + viewport + scissor              sommets=3   fragments=1682   pixel V=255 
+  debordant + viewport + scissor           sommets=3   fragments=4096   pixel V=255 
+  debordant + clipping en clamp            sommets=3   fragments=4096   pixel V=255 
+
+---------- color
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+
+A. sans aucune cible couleur
+  profondeur seule, fragment void        sommets=3   fragments=1682   -> RASTERISE
+
+B. avec cible couleur, formats varies (+ profondeur)
+  RGBA8Unorm                             sommets=3   fragments=1682   -> RASTERISE
+  BGRA8Unorm                             sommets=3   fragments=1682   -> RASTERISE
+  RGBA8Unorm_sRGB                        sommets=3   fragments=1682   -> RASTERISE
+  R8Unorm                                sommets=3   fragments=1682   -> RASTERISE
+  RG8Unorm                               sommets=3   fragments=1682   -> RASTERISE
+  RGBA16Float                            sommets=3   fragments=1682   -> RASTERISE
+  RGBA32Float                            sommets=3   fragments=1682   -> RASTERISE
+
+C. couleur seule, sans profondeur
+  RGBA8Unorm sans profondeur             sommets=3   fragments=1682   -> RASTERISE
+
+D. variantes d'appel de dessin (RGBA8Unorm + profondeur)
+  dessin indexe                          sommets=3   fragments=1682   -> RASTERISE
+  bande de triangles                     sommets=4   fragments=2523   -> RASTERISE
+  lignes                                 sommets=2   fragments=58     -> RASTERISE
+
+---------- stages
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+
+pipeline cree OK
+
+  invocations du shader de sommets   : 3   -> l'etage sommets TOURNE
+  invocations du shader de fragments : 4096   -> l'etage fragments TOURNE
+  pixel resultant                    : R=0 V=255 B=0
+
+diagnostic : tout fonctionne
+
+---------- gputest
+[both] drapeaux RE-PACKES | piece jointe couleur TRADUITE
+peripherique : AMD Radeon R9 M295X
+familles     : Apple? 0  Mac2? 1  Common3? 1
+
+A. chemin sans shader
+  effacement vers rouge                      OK
+  recopie tampon -> tampon                   OK
+
+B. chemin calcul (shaders, sans rasterisation)
+  calcul ecrit dans un tampon                OK  out[0]=100 out[17]=117 out[63]=163
+  calcul ecrit dans une texture              OK  R=0 V=255 B=0
+
+C. chemin rasterisation (shaders + dessin)
+  triangle via vertex_id                     OK  R=0 V=255 B=0
+  triangle via tampon de sommets             OK  R=0 V=255 B=0
+
+6/6 reussis
+
+################################################## 4. rendu sans correction (temoin)
+
+---------- clip
+[both] drapeaux bruts (comme la couche livree) | piece jointe couleur brute (comme la couche livree)
+peripherique : AMD Radeon R9 M295X
+
+A. geometrie
+  triangle debordant (exige clipping)      sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle entierement dedans              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle pile sur les bords              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  triangle enroulement inverse             sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  point central                            sommets=1   fragments=0      pixel V=0   <- rien de rasterise
+
+B. cadrage impose explicitement
+  dedans + viewport                        sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  dedans + scissor                         sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  dedans + viewport + scissor              sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  debordant + viewport + scissor           sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+  debordant + clipping en clamp            sommets=3   fragments=0      pixel V=0   <- rien de rasterise
+
+---------- stages
+[both] drapeaux bruts (comme la couche livree) | piece jointe couleur brute (comme la couche livree)
+peripherique : AMD Radeon R9 M295X
+
+pipeline cree OK
+
+  invocations du shader de sommets   : 3   -> l'etage sommets TOURNE
+  invocations du shader de fragments : 0   -> etage fragments MUET
+  pixel resultant                    : R=0 V=0 B=255
+
+diagnostic : les sommets tournent mais aucun fragment n'est produit (clipping ou assemblage des primitives)
+
+################################################## 5. textures IOSurface
+peripherique : AMD Radeon R9 M295X
+
+A. IOSurface ordinaire
+  BGRA8Unorm ('BGRA')                OK
+  RGBA8Unorm ('RGBA')                OK
+
+B. IOSurface marquee texture Metal partagee
+   (c'est ce que teste isIOSurfaceSharedMetalTexture)
+  BGRA8Unorm partagee                OK
+
+termine sans plantage
+
+=== fin. journal : /Users/Shared/all.log ===
+Shutdown NOW!
+
+System shutdown time has arrived

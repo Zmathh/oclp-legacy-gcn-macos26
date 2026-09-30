@@ -1,0 +1,17 @@
+=== lun. 28 sept. 2026 10:11:54 CEST — macOS 26.0 (25A354) ===
+peripherique : AMD Radeon R9 M295X
+familles     : Apple? 0  Mac2? 1  Common3? 1
+
+A. chemin sans shader
+  effacement vers rouge                      OK
+  recopie tampon -> tampon                   OK
+
+B. chemin calcul (shaders, sans rasterisation)
+  calcul ecrit dans un tampon                OK  out[0]=100 out[17]=117 out[63]=163
+  calcul ecrit dans une texture              OK  R=0 V=255 B=0
+
+C. chemin rasterisation (shaders + dessin)
+  triangle via vertex_id                     ECHEC  R=0 V=0 B=255
+  triangle via tampon de sommets             ECHEC  R=0 V=0 B=255
+
+4/6 reussis
