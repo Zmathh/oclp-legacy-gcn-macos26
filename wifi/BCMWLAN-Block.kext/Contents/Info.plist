@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleGetInfoString</key>
+	<string>BCMWLAN-Block</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.zmathh.BCMWLAN-Block</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>BCMWLAN-Block</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>BlockAppleBCMWLANDext</key>
+		<dict>
+			<key>IOClass</key>
+			<string>IOService</string>
+			<key>IOMatchCategory</key>
+			<string>com.apple.wifibus.driver</string>
+			<key>IOPCIMatch</key>
+			<string>0x43a014e4 0x43a314e4 0x43ba14e4</string>
+			<key>IOProbeScore</key>
+			<integer>110000</integer>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
