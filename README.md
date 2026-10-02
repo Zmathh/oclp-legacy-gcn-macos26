@@ -14,6 +14,7 @@ supported product, and it is not part of OCLP.
 |---|---|---|---|
 | **GPU / Metal** (R9 M295X, Tonga, Legacy GCN) | Desktop, WindowServer and Metal work | OCLP's *AMD Legacy GCN* files + a corrected `impostor.dylib` | [docs/gpu.md](docs/gpu.md) |
 | **Wi‑Fi** (Broadcom BCM4360, `14e4:43a0`) | Works, **with VT‑d on**: 802.11ac, 5 GHz, ~147 Mbit/s measured | Legacy Wi‑Fi stack enabled for Darwin 25 + **`BrcmIOVAFix.kext`** + OCLP userspace (PatcherSupportPkg **1.9.6**) | [wifi/README.md](wifi/README.md) |
+| **Audio** (Intel HDA) | Internal speakers and microphone work | `AppleHDA.kext` (removed in macOS 26) put back from macOS 15 + kernel collections rebuilt | [audio/README.md](audio/README.md) |
 | **Bluetooth** (BCM20702) | Works natively | nothing | — |
 | **USB** | Works (keyboard, mouse, FaceTime camera, Bluetooth hub) | `USB-Map-Tahoe.kext`: OCLP's map + `usb-port-number` | [usb/](usb/) |
 | **Ethernet** (BCM5701) | Works natively | nothing; keep VT‑d **on** | — |
@@ -125,7 +126,20 @@ explains them, with the measurements.
    running one.
 5. Join a network, then run `bash wifi/check-wifi.sh` again.
 
-### 4. Bluetooth
+### 4. Audio
+
+macOS 26 has no `AppleHDA.kext`, so a non‑T2 Mac has no sound device at all. Install the one from
+an installed macOS 15. This needs the Kernel Debug Kit already merged, as the GPU patch does:
+
+```sh
+sudo bash audio/root-patch-audio.sh "/Volumes/<macOS 15 volume>/System/Library/Extensions/AppleHDA.kext"
+```
+
+It saves the current kernel collections to `/Users/Shared/rescue-tahoe-kc/`, rebuilds them with
+`kmutil`, and takes a new snapshot. If anything fails, it restores the previous state. Reboot,
+then run `system_profiler SPAudioDataType`.
+
+### 5. Bluetooth
 
 Nothing to do on this machine: the Apple BCM20702 works natively.
 
@@ -138,6 +152,7 @@ Sequoia through the rescue OpenCore, then:
 |---|---|
 | An EFI change (kext, quirk, boot‑arg) | `sudo bash /Users/Shared/rescue-tahoe/rescue-tahoe.sh efi`: restores `config.plist.last-good` |
 | A root patch (files on the system volume) | `sudo bash /Users/Shared/rescue-tahoe/rescue-tahoe.sh wifi`: removes the Wi‑Fi userspace files and takes a new snapshot |
+| The audio patch (AppleHDA + kernel collections) | `sudo bash /Users/Shared/rescue-tahoe/rescue-tahoe.sh audio`: removes AppleHDA, restores the saved kernel collections, new snapshot |
 
 Never use OCLP's *Revert Root Patches* (`bless --last-sealed-snapshot`). It goes back to Apple's
 sealed snapshot and removes the GPU work too.
@@ -208,7 +223,9 @@ wifi/root-patch-wifi.sh   Wi-Fi userspace (PatcherSupportPkg 1.9.6), verified, w
 wifi/check-wifi.sh        read-only status (--log for the kext's lines)
 usb/make-usb-map-tahoe.sh OCLP USB-Map.kext -> USB-Map-Tahoe.kext
 usb/examples/iMac15,1/    the map used on this machine
-rescue/                   rescue-tahoe.sh (etat / sauver / efi / wifi) + PROCEDURE.md
+audio/root-patch-audio.sh AppleHDA from macOS 15 + kmutil rebuild, with --revert
+audio/README.md           why, what was checked, rescue
+rescue/                   rescue-tahoe.sh (etat / sauver / efi / wifi / audio) + PROCEDURE.md
 ```
 
 ## Credits

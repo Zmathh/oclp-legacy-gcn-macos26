@@ -6,6 +6,7 @@ Deux choses peuvent empêcher Tahoe de démarrer après un essai :
 |---|---|---|---|
 | La config OpenCore | EFI principal (partition `408679D7…`, `disk0s1` ou `disk1s1` selon le démarrage) : `config.plist`, kexts, quirks, boot-args | `DisableIoMapper=true` : WindowServer plante en boucle à la création de l'écran | `efi` |
 | Les fichiers système | Volume système de Tahoe (« Untitled ») : root patch | shim `IO80211` mal signé : blocage à mi-barre, pas d'écran de connexion | `wifi` |
+| AppleHDA + kernel collections | Volume système de Tahoe : `audio/root-patch-audio.sh` | (si un jour l'audio empêche le démarrage) | `audio` : retire AppleHDA et remet les kernel collections sauvegardées dans `/Users/Shared/rescue-tahoe-kc/` |
 
 Si tu ne sais pas lequel des deux est en cause, commence par `efi` : c'est rapide et réversible.
 

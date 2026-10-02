@@ -7,13 +7,18 @@
 #   sudo bash rescue-tahoe.sh efi      remet config.plist.last-good (garde l'actuelle en .failed-DATE)
 #   sudo bash rescue-tahoe.sh wifi     retire le root patch Wi-Fi du volume systeme de Tahoe
 #                                      et cree un nouveau snapshot (depuis un AUTRE macOS seulement)
+#   sudo bash rescue-tahoe.sh audio    retire AppleHDA.kext, remet les kernel collections sauvegardees
+#                                      par audio/root-patch-audio.sh, nouveau snapshot (AUTRE macOS)
 #
 # Les identifiants sont des UUID : les numeros diskN changent d'un macOS a l'autre.
 set -euo pipefail
 
 EFI_PART_UUID=408679D7-722D-47FF-86E8-D935A798AEC6   # EFI de l OpenCore principal (disk0s1 ou disk1s1 selon le demarrage)
 TAHOE_SYS_UUID=0A395E32-5B65-4C0D-B88A-0EFFB0AAF251  # volume systeme « Untitled » (macOS 26)
+TAHOE_DATA_UUID=6AEDE14F-D9C4-3788-8FAC-FD32C4838D47 # volume de donnees « Untitled - Donnees »
 RW=/Volumes/tahoe-rw
+HDA=System/Library/Extensions/AppleHDA.kext
+KC=System/Library/KernelCollections
 
 WIFI_FILES="\
 System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
@@ -28,7 +33,7 @@ die() { echo "ERREUR : $*" >&2; exit 1; }
 [ "$(id -u)" = 0 ] || die "lancer avec sudo"
 
 MODE=${1:-etat}
-case $MODE in etat|sauver|efi|wifi) ;; *) die "commande inconnue : $MODE (etat, sauver, efi, wifi)" ;; esac
+case $MODE in etat|sauver|efi|wifi|audio) ;; *) die "commande inconnue : $MODE (etat, sauver, efi, wifi, audio)" ;; esac
 
 # --- EFI principal
 efi_dev=$(diskutil info -plist "$EFI_PART_UUID" 2>/dev/null | plutil -extract DeviceIdentifier raw - 2>/dev/null) \
@@ -84,6 +89,7 @@ case $MODE in
             mount_tahoe_rw
             n=0; while read -r p; do [ -f "$RW/$p" ] && n=$((n + 1)); done <<<"$WIFI_FILES"
             echo "  fichiers Wi-Fi du root patch presents : $n / 5$( [ -f "$RW/$BACKUP" ] && echo ', sauvegarde wifip2pd presente')"
+            echo "  AppleHDA.kext : $( [ -d "$RW/$HDA" ] && echo present || echo absent)"
         fi
         [ -f "$OC/config.plist.last-good" ] \
             || echo "Pas encore de config.plist.last-good : lancer « sauver » apres un demarrage reussi."
@@ -119,6 +125,32 @@ case $MODE in
         else
             echo "   pas de $BACKUP : wifip2pd laisse tel quel"
         fi
+        bless --folder "$RW/System/Library/CoreServices" --bootefi --create-snapshot \
+            || die "bless a echoue : snapshot non cree"
+        diskutil unmount "$RW" >/dev/null 2>&1 || true
+        echo "Nouveau snapshot cree. Redemarrer sur macOS 26 via l'OpenCore principal."
+        ;;
+    audio)
+        [ "$booted_on_tahoe" = no ] \
+            || die "demarre sur Tahoe : utiliser plutot sudo bash audio/root-patch-audio.sh --revert"
+        data_dev=$(diskutil info -plist "$TAHOE_DATA_UUID" | plutil -extract DeviceIdentifier raw -) \
+            || die "volume de donnees de Tahoe introuvable"
+        diskutil mount "$data_dev" >/dev/null 2>&1 || true
+        data_mnt=$(diskutil info -plist "$data_dev" | plutil -extract MountPoint raw - 2>/dev/null || true)
+        [ -n "$data_mnt" ] || die "volume de donnees de Tahoe non monte"
+        # Sauvegarde la plus recente prise AVANT une installation d'AppleHDA.
+        save=""
+        for d in $(ls -1t "$data_mnt/Users/Shared/rescue-tahoe-kc/" 2>/dev/null); do
+            grep -q "avant install" "$data_mnt/Users/Shared/rescue-tahoe-kc/$d/README.txt" 2>/dev/null \
+                && { save="$data_mnt/Users/Shared/rescue-tahoe-kc/$d"; break; }
+        done
+        [ -n "$save" ] && [ -f "$save/SystemKernelExtensions.kc" ] \
+            || die "aucune sauvegarde de kernel collections dans $data_mnt/Users/Shared/rescue-tahoe-kc/"
+        echo "sauvegarde utilisee : $save ($(cat "$save/README.txt"))"
+        mount_tahoe_rw
+        echo "== retrait d'AppleHDA.kext et remise des kernel collections"
+        rm -rf "${RW:?}/${HDA:?}"
+        cp -p "$save"/*.kc "$save"/*.elides "$RW/$KC/"
         bless --folder "$RW/System/Library/CoreServices" --bootefi --create-snapshot \
             || die "bless a echoue : snapshot non cree"
         diskutil unmount "$RW" >/dev/null 2>&1 || true
