@@ -2,11 +2,18 @@
 
 Fixes, tools and measurements for running **macOS 26.0 (25A354)** on a **late‑2014 5K iMac
 (iMac15,1)** through an OpenCore Legacy Patcher 2.5 EFI. It covers Metal acceleration on the
-AMD Radeon R9 M295X (Legacy GCN), Wi‑Fi, Bluetooth and USB.
+AMD Radeon R9 M295X (Legacy GCN), Wi‑Fi, audio, Bluetooth and USB.
 
 This is one machine, tested by one person. Every claim below was measured on that machine, and
 the raw evidence is in the repository. Anything **not** verified is marked as such. It is not a
 supported product, and it is not part of OCLP.
+
+<p align="center">
+  <img src="docs/images/about-this-mac-tahoe.png" width="420"
+       alt="About This Mac on the iMac15,1: iMac Retina 5K, 27-inch, Late 2014, AMD Radeon R9 M295X 4 GB, macOS Tahoe 26.0">
+  <br>
+  <sub>The machine, booted on macOS Tahoe 26.0 (French UI). Serial number masked.</sub>
+</p>
 
 ## Status
 
@@ -212,6 +219,7 @@ This is a test machine. Know what you give up:
 ```
 README.md                 this file
 docs/gpu.md               the three Metal shim defects, measured
+docs/images/              About This Mac screenshot (serial number masked)
 src/                      corrected impostor.dylib (shipped copy table + three fixes)
 tests/  results/          GPU test programs and raw logs (macOS 26 and 15.8)
 build.sh                  builds the shim and the test programs
